@@ -15,8 +15,8 @@ services:
     image: postgres:9.6
     environment:
       # Add your credentials as GitHub Actions Secrets, then use the commented syntax below:
-      POSTGRES_USER: postgres # "${PGUSER}"
-      POSTGRES_PASSWORD: postgres # "${PGPASSWORD}"
+      POSTGRES_USER: "${PGUSER}"
+      POSTGRES_PASSWORD: "${PGPASSWORD}"
     deploy:
       resources:
         limits:
@@ -26,8 +26,8 @@ services:
     image: "${WORKER_IMAGE}"
     environment:
       # Add your credentials as GitHub Actions Secrets, then use the commented syntax below:
-      PGUSER: postgres # "${PGUSER}"
-      PGPASSWORD: postgres # "${PGPASSWORD}"
+      PGUSER: "${PGUSER}"
+      PGPASSWORD: "${PGPASSWORD}"
     deploy:
       resources:
         limits:
@@ -37,9 +37,9 @@ services:
     image: "${RESULT_IMAGE}"
     environment:
       # Add your credentials as GitHub Actions Secrets, then use the commented syntax below:
-      PGUSER: postgres # "${PGUSER}"
-      PGDATABASE: postgres # "${PGUSER}"
-      PGPASSWORD: postgres # "${PGPASSWORD}"
+      PGUSER:  "${PGUSER}"
+      PGDATABASE: "${PGUSER}"
+      PGPASSWORD: "${PGPASSWORD}"
       PORT: 8088
 
   vote:
